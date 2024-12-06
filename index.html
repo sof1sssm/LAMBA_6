@@ -1,0 +1,26 @@
+<body>
+  <h1> Экземпляры приложения</h1>
+  
+  <h2>Добавить новый экземпляр</h2>
+  <form action="/add_instance" method="post">
+    <label for="ip">IP:</Label>
+    <input type="text" id="ip" name="ip" placeholder="IP" required>
+    <label for="port">Port:</label>
+    <input type="number" id="port" name="port" placeholder="Port" required>
+    <button type="submit">Добавить</button>
+  </form>
+  
+  ‹h2>Удалить экземпляр</h2>
+  ‹form action="/remove_instance" method="post">
+    <input type="number" id="index" name="index" placeholder="Index" required>
+    <button type="submit">Удалить</button>
+  </form>
+  
+  <h2> Пекушие экземпляры</h2>
+  <ul>
+    {% for instance in instances %}
+      <li>{{ loop.index }}: {{ instance.ip }}:{{ instance.port }} ({{ instance.status }})</li>
+    {% endfor %}
+  </ul>
+
+</body> 
